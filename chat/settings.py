@@ -36,11 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # Apps
     'core',
-
-    # 3rd party
     'rest_framework',
     'channels',
 ]
@@ -73,7 +69,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'chat.wsgi.application'
+#WSGI_APPLICATION = 'chat.wsgi.application'
+ASGI_APPLICATION = "chat.routing.application"
+
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
@@ -84,6 +82,7 @@ DATABASES = {
         'NAME': 'chat',
         'USER': 'root',
         'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
         'OPTIONS': {
         }
     }
@@ -128,15 +127,10 @@ MESSAGES_TO_LOAD = 15
 # In settings.py
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgiref.inmemory.ChannelLayer",
-        "ROUTING": "core.routing.channel_routing",
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "ROUTING": "core.routing.channels_routing",       
     },
 }
-# Could be changed to the config below to scale:
-# "BACKEND": "asgi_redis.RedisChannelLayer",
-# "CONFIG": {
-#     "hosts": [("localhost", 6379)],
-# },
 
 LANGUAGE_CODE = 'en-us'
 
@@ -177,12 +171,12 @@ try:
 except ImportError:
     pass
 
-ASGI_APPLICATION = 'chat.routing.application'
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
-    },
-}
+
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [('127.0.0.1', 6379)],
+#         },
+#     },
+# }

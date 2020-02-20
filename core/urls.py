@@ -1,12 +1,13 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
-from rest_framework.routers import DefaultRouter
+# from rest_framework.routers import DefaultRouter
+from rest_framework import routers
 from core.api import MessageModelViewSet, UserModelViewSet
 
-router = DefaultRouter()
-router.register(r'message', MessageModelViewSet, base_name='message-api')
-router.register(r'user', UserModelViewSet, base_name='user-api')
+router = routers.SimpleRouter()
+router.register(r'message', MessageModelViewSet)
+router.register(r'user', UserModelViewSet)
 
 urlpatterns = [
     path(r'api/v1/', include(router.urls)),
