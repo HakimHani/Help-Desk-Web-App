@@ -36,7 +36,7 @@ https://channels.readthedocs.io/en/latest/introduction.html
 
 **update 04/06/19**
 
-- using pipenv for package management
+- using pip for package management
 - move to Channels 2
 - use redis as the channel layer backing store. for more information, please check [channels_resid](https://github.com/django/channels_redis)
 
@@ -62,14 +62,13 @@ Because of time constraints this project lacks of:
 
 0. move to project root folder
 
-
 1. Create and activate a virtualenv (Python 3)
 ```bash
 pipenv --python 3 shell
 ```
 2. Install requirements
 ```bash
-pipenv install
+pip install django
 ```
 3. Create a MySQL database
 ```sql
@@ -81,7 +80,7 @@ CREATE DATABASE chat CHARACTER SET utf8;
 ```
 5. Run tests
 ```bash
-./manage.py test
+./manage.py check
 ```
 
 6. Create admin user
