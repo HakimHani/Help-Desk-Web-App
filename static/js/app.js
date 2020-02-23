@@ -73,7 +73,6 @@ function setCurrentRecipient(username) {
     enableInput();
 }
 
-
 function enableInput() {
     chatInput.prop('disabled', false);
     chatButton.prop('disabled', false);
