@@ -79,9 +79,9 @@ ASGI_APPLICATION = "chat.routing.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'chat',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'NAME': 'chat_app',
+        'USER': 'hakim',
+        'PASSWORD': '1234',
         'HOST': '127.0.0.1',
         'OPTIONS': {
         }

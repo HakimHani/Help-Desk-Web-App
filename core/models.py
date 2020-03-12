@@ -12,6 +12,7 @@ class MessageModel(Model):
     the message body.
 
     """
+    id = ""
     user = ForeignKey(User, on_delete=CASCADE, verbose_name='user',
                       related_name='from_user', db_index=True)
     recipient = ForeignKey(User, on_delete=CASCADE, verbose_name='recipient',
