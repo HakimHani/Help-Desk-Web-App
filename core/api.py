@@ -44,7 +44,7 @@ class MessageModelViewSet(ModelViewSet):
             self.queryset = self.queryset.filter(
                 Q(recipient=request.user, user__username=target) |
                 Q(recipient__username=target, user=request.user))
-        return super(MessageModelViewSet, self).list(request, *args, **kwargs)
+        return super(MessageModelViewSet, self).list(self, request, *args, **kwargs)
 
     def retrieve(self, request, *args, **kwargs):
         msg = get_object_or_404(
@@ -64,4 +64,4 @@ class UserModelViewSet(ModelViewSet):
     def list(self, request, *args, **kwargs):
         # Get all users except yourself
         self.queryset = self.queryset.exclude(id=request.user.id)
-        return super(UserModelViewSet, self).list(request, *args, **kwargs)
+        return super(UserModelViewSet, self).list(self, request, *args, **kwargs)

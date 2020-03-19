@@ -128,7 +128,7 @@ MESSAGES_TO_LOAD = 15
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "ROUTING": "core.routing.channels_routing",       
+        # "ROUTING": "core.routing.channels_routing",       
     },
 }
 
