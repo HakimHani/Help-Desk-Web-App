@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'chat_app',
-        'USER': 'hakim',
+        'USER': 'abuosba',
         'PASSWORD': '1234',
         'HOST': '127.0.0.1',
         'OPTIONS': {
