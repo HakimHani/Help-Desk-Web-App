@@ -35,15 +35,25 @@
                                    placeholder="Type your message here ..."
                                    maxlength="500">
                             <span class="input-group-btn">
-                            <button class="btn btn-info btn"
-                                    id="btn-send">
-                                Send</button>
-                        </span>
+                                <button class="btn btn-info btn"
+                                        id="btn-send">
+                                    Send
+                                </button>
+                            </span>
                         </div>
+                        <!-- file upload -->
+                        <span><a href="{% url 'model_form_upload' %}">upload files</a></span>        
+                        <!-- <p>Uploaded files:</p>
+                        <ul>
+                            {% for obj in documents %}
+                            <li>
+                                <a href="{{ obj.document.url }}">{{ obj.document.name }}</a>
+                                <small>(Uploaded at: {{ obj.uploaded_at }})</small>
+                            </li>
+                            {% endfor %}
+                        </ul> -->
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>

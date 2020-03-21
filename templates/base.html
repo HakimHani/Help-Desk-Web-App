@@ -23,6 +23,15 @@
 
 {% block main %}
 
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <!-- {{ form.as_p }} -->
+    <button type="submit">Upload</button>
+  </form>
+
+  <p><a href="{% url 'home' %}">Return to Chat</a></p>
+
 {% endblock %}
 
 </body>

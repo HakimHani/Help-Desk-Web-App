@@ -8,6 +8,12 @@ from channels.consumer import AsyncConsumer
 from channels.db import database_sync_to_async
 # from core.models import Thread, ChatMessage
 
+from django.shortcuts import render, redirect
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+from core.models import Document
+from core.forms import DocumentForm
+
 class ChatConsumer(AsyncConsumer):
 
     async def connect(self, event):
@@ -51,3 +57,4 @@ class ChatConsumer(AsyncConsumer):
         await self.send(json.dumps({
             'message': message
         }))
+    
